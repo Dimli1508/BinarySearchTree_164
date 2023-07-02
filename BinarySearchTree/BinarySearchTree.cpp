@@ -9,7 +9,7 @@ public:
 	Node* leftchild;
 	Node* rightchild;
 
-	Node(string i, Node * 1, Node* r)
+	Node(string i, Node* l, Node* r)
 	{
 		info = i;
 		leftchild = l;
@@ -63,7 +63,7 @@ public:
 			if (element < currentNode->info)
 				currentNode = currentNode->leftchild;
 			else
-				currentNode = currentNode->rightchild
+				currentNode = currentNode->rightchild;
 		}
 	}
 
@@ -112,3 +112,56 @@ public:
 		}
 	}
 };
+
+int main()
+{
+	BinaryTree obj;
+	while (true)
+	{
+		cout << "\nMenu" << endl;
+		cout << " 1. Implement insert operation" << endl;
+		cout << " 2. perform inorder traversal" << endl;
+		cout << " 3. perform preorder traversal" << endl;
+		cout << " 4. perform postorder traversal" << endl;
+		cout << " 5. exit" << endl;
+		cout << "\nEnter your choise(1-5) : ";
+
+		char ch;
+		cin >> ch;
+		cout << endl;
+
+		switch (ch)
+		{
+		case '1':
+		{
+			cout << "enter a word: ";
+			string word;
+			cin >> word;
+			obj.insert(word);
+			break;
+		}
+		case '2':
+		{
+			obj.inorder(obj.ROOT);
+			break;
+		}
+		case '3':
+		{
+			obj.preorder(obj.ROOT);
+			break;
+		}
+		case '4':
+		{
+			obj.postorder(obj.ROOT);
+			break;
+		}
+		case '5':
+			return 0;
+		default:
+		{
+			cout << "invalid option" << endl;
+			break;
+		}
+		}
+	}
+}
